@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LKKCenterAlignedViews_Example' do
+  pod 'LKKCenterAlignedViews', :path => '../'
+
+  target 'LKKCenterAlignedViews_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
