@@ -12,9 +12,15 @@
 
 - (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding
 {
+    if (views.count == 0) {
+        [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        return;
+    }
+    
     __block UIView *preview = nil;
     __weak typeof(self) weakSelf = self;
     [views enumerateObjectsUsingBlock:^(UIView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf addSubview:view];
         [weakSelf addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
         if (preview) {
             [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:preview attribute:NSLayoutFormatAlignAllRight multiplier:1.0 constant:padding]];
