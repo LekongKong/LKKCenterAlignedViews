@@ -1,0 +1,6 @@
+framework module LKKCenterAlignedViews {
+  umbrella header "LKKCenterAlignedViews-umbrella.h"
+
+  export *
+  module * { export * }
+}

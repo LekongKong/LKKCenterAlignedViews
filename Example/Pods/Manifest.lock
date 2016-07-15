@@ -1,0 +1,16 @@
+PODS:
+  - LKKCenterAlignedViews (0.1.0)
+
+DEPENDENCIES:
+  - LKKCenterAlignedViews (from `../`)
+
+EXTERNAL SOURCES:
+  LKKCenterAlignedViews:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LKKCenterAlignedViews: 35b383760f8facd0b208c6f09bcb5e320f1c704b
+
+PODFILE CHECKSUM: 92438786c724df4f8df1312a353935e3657b822d
+
+COCOAPODS: 1.0.1
