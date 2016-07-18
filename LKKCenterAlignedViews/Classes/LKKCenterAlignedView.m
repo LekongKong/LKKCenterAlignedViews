@@ -23,7 +23,7 @@
         [weakSelf addSubview:view];
         [weakSelf addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
         if (preview) {
-            [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:preview attribute:NSLayoutFormatAlignAllRight multiplier:1.0 constant:padding]];
+            [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:preview attribute:NSLayoutAttributeRight multiplier:1.0 constant:padding]];
         }
         preview = view;
     }];
