@@ -39,7 +39,14 @@
         }
         if (preview) {
             [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:preview attribute:NSLayoutAttributeRight multiplier:1.0 constant:padding]];
+        } else {
+            [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:weakSelf attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
         }
+        
+        if (idx == views.count - 1) {
+            [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationLessThanOrEqual toItem:weakSelf attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
+        }
+        
         preview = view;
     }];
     NSInteger center = center = views.count / 2;
