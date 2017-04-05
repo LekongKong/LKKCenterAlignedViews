@@ -17,8 +17,9 @@
 
 - (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding viewSize:(CGSize)size
 {
-    if (views.count == 0) {
-        [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    if (!views || views.count == 0) {
         return;
     }
     
