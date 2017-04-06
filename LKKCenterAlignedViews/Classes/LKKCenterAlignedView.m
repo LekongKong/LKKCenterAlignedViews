@@ -10,12 +10,12 @@
 
 @implementation LKKCenterAlignedView
 
-- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding
+- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding addTapGesture:(BOOL)addGesture
 {
-    [self setCustomViews:views padding:padding viewSize:CGSizeZero];
+    [self setCustomViews:views padding:padding viewSize:CGSizeZero addTapGesture:addGesture];
 }
 
-- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding viewSize:(CGSize)size
+- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding viewSize:(CGSize)size addTapGesture:(BOOL)addGesture
 {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
@@ -27,8 +27,10 @@
     __weak typeof(self) weakSelf = self;
     [views enumerateObjectsUsingBlock:^(UIView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
         view.tag = idx;
-        UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(clickView:)];
-        [view addGestureRecognizer:gestureRecognizer];
+        if (addGesture) {
+            UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(clickView:)];
+            [view addGestureRecognizer:gestureRecognizer];
+        }
         [weakSelf addSubview:view];
         [weakSelf addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:weakSelf attribute:NSLayoutAttributeCenterY  multiplier:1.0 constant:0]];
         if (size.width && size.height) {

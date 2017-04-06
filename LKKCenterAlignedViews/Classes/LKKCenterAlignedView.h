@@ -22,11 +22,11 @@
 /**
  *  默认每个view上下撑开，并且宽高相等
  */
-- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding;
+- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding addTapGesture:(BOOL)addGesture;
 
 /**
  *  自定义view的大小
  */
-- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding viewSize:(CGSize)size;
+- (void)setCustomViews:(NSArray<UIView *> *)views padding:(CGFloat)padding viewSize:(CGSize)size addTapGesture:(BOOL)addGesture;
 
 @end
